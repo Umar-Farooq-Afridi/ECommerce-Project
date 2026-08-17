@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "Backend for ECommerce Project create with MERN Technologies",
   "keywords": [
+    "ECommerce-Backend",
     "ECommerce-Project-Backend",
     "MERN-Stack-ECommerce-Project"
   ],
   "license": "ISC",
   "author": "Umar Farooq",
   "type": "commonjs",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
