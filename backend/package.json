@@ -1,0 +1,29 @@
+{
+  "name": "ecommerce-project-backend",
+  "version": "1.0.0",
+  "description": "Backend for ECommerce Project create with MERN Technologies",
+  "keywords": [
+    "ECommerce-Project-Backend",
+    "MERN-Stack-ECommerce-Project"
+  ],
+  "license": "ISC",
+  "author": "Umar Farooq",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.10.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.2",
+    "multer": "^2.2.0",
+    "nodemon": "^3.1.14",
+    "paypal-rest-sdk": "^1.8.1"
+  }
+}
