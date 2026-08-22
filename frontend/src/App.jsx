@@ -1,8 +1,10 @@
+import "./App.css";
+
 function App() {
   return (
-    <div>
-      <h1>E-Commerce Project Frontend</h1>
-    </div>
+    <>
+      <div>MERN Stack ECommerce Project by Umar Farooq</div>
+    </>
   );
 }
 
