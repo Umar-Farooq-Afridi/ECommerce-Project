@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { createContext } from "react";
 import { products } from "../assets/assets";
 
-export const ShopContext = useContext();
+export const ShopContext = createContext();
+
 function ShopContextProvider(props) {
   const currency = "$";
   const deliveryFee = 10;
@@ -13,7 +14,7 @@ function ShopContextProvider(props) {
   };
 
   return (
-    <ShopContext.Provider value={value}>{props.childern}</ShopContext.Provider>
+    <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
   );
 }
 
