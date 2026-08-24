@@ -11,11 +11,13 @@ import Login from "./pages/Login";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
     <div className="px-4 sm:px-[5vm] md:px-[7vm] lg:px-[9vm]">
       <Navbar />
+      <SearchBar />
 
       <Routes>
         <Route path="/" element={<Home />} />
