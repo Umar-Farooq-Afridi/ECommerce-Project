@@ -13,9 +13,14 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SearchBar from "./components/SearchBar";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   return (
     <div className="px-4 sm:px-[5vm] md:px-[7vm] lg:px-[9vm]">
+      <ToastContainer />
+
       <Navbar />
       <SearchBar />
 
