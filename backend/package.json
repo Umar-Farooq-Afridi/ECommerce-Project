@@ -9,7 +9,7 @@
   ],
   "license": "ISC",
   "author": "Umar Farooq",
-  "type": "commonjs",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -27,6 +27,7 @@
     "mongoose": "^9.9.2",
     "multer": "^2.2.0",
     "nodemon": "^3.1.14",
-    "paypal-rest-sdk": "^1.8.1"
+    "paypal-rest-sdk": "^1.8.1",
+    "validator": "^13.15.35"
   }
 }
