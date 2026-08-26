@@ -12,7 +12,7 @@ async function startServer() {
     connectCloudinary();
 
     app.listen(PORT, () => {
-      console.log("\n=============================================");
+      console.log("=============================================");
       console.log(`Server running at http://localhost:${PORT}`);
       console.log("=============================================\n");
     });
