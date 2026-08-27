@@ -66,17 +66,36 @@ async function registerUser(request, response) {
     const user = await newUser.save();
     const token = createToken(user._id);
 
-    response.status(200).json({
-      success: true,
-      message: "User created successfully",
-      token,
-    });
+    response
+      .status(200)
+      .json({ success: true, message: "User created successfully", token });
   } catch (error) {
     console.log(error);
     response.status(500).json({ message: "Internal server error" });
   }
 }
 
-async function adminLogin(request, response) {}
+async function adminLogin(request, response) {
+  try {
+    const { email, password } = request.body;
+
+    if (
+      email === process.env.ADMIN_EMAIL &&
+      password === process.env.ADMIN_PASSWORD
+    ) {
+      const token = jwt.sign(email + password, process.env.JWT_SECRET);
+      response
+        .status(200)
+        .json({ success: true, message: "User login successfully", token });
+    } else {
+      response
+        .status(400)
+        .json({ success: true, message: "Invalid credintials." });
+    }
+  } catch (error) {
+    console.log(error);
+    response.status(500).json({ message: "Internal server error" });
+  }
+}
 
 export { loginUser, registerUser, adminLogin };
