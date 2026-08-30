@@ -1,11 +1,60 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ShopContext } from "../context/ShopContext";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const { token, setToken, navigate, backendUrl } = useContext(ShopContext);
 
   async function onSubmitHandler(event) {
     event.preventDefault();
+
+    try {
+      if (currentState === "Sign Up") {
+        const response = await axios.post(backendUrl, "/api/user/register", {
+          name,
+          email,
+          password,
+        });
+        if (response.data.success) {
+          setToken(response.data.token);
+          localStorage.setItem("token", response.data.token);
+        } else {
+          toast.error(response.data.message);
+        }
+      } else {
+        const response = await axios.post(backendUrl, "/api/user/login", {
+          email,
+          password,
+        });
+        if (response.data.success) {
+          setToken(response.data.token);
+          localStorage.setItem("token", response.data.token);
+        } else {
+          toast.error(response.data.message);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   }
+
+  useEffect(() => {
+    navigate("/");
+  }, [token]);
+
+  useEffect(() => {
+    if (!token && localStorage.getItem("token")) {
+      setToken(localStorage.getItem("token"));
+    }
+  }, []);
+
   return (
     <form
       onSubmit={onSubmitHandler}
@@ -20,6 +69,8 @@ const Login = () => {
         ""
       ) : (
         <input
+          onChange={(e) => setName(e.target.value)}
+          value={name}
           type="text"
           className="w-full px-3 py-2 border border-gray-800"
           placeholder="Name"
@@ -28,6 +79,8 @@ const Login = () => {
       )}
 
       <input
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
         type="email"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Email"
@@ -35,6 +88,8 @@ const Login = () => {
       />
 
       <input
+        onChange={(e) => setPassword(e.target.value)}
+        value={password}
         type="password"
         className="w-full px-3 py-2 border border-gray-800"
         placeholder="Password"
