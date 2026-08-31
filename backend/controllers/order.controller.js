@@ -44,6 +44,10 @@ const updateStatus = async (request, response) => {
 
 const userOrders = async (request, response) => {
   try {
+    const { userId } = request.body;
+    const orders = await orderModel.find({ userId });
+
+    response.status(200).json({ success: true, orders });
   } catch (error) {
     console.log(error);
     response.status(500).json({ success: false, message: error.message });

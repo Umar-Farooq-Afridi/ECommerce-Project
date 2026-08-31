@@ -161,6 +161,7 @@ function ShopContextProvider(props) {
 
     addToCart,
     cartItems,
+    setCartItems,
 
     getCartCount,
     updateQuantity,
