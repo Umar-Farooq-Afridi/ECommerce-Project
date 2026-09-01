@@ -28,6 +28,8 @@ const placeOrder = async (request, response) => {
 
 const allOrders = async (request, response) => {
   try {
+    const orders = await orderModel.find({});
+    response.status(200).json({ success: true, orders });
   } catch (error) {
     console.log(error);
     response.status(500).json({ success: false, message: error.message });
